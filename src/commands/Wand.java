@@ -1,7 +1,6 @@
 package commands;
 
 public class Wand {
-
 	
 	public void Expelliarmus() {
 		System.out.println("You have disarmed your oppenent!");

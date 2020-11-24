@@ -3,7 +3,7 @@ package commands;
 public class ExpectoPatronum implements Command{
 
 	Wand w;
-	ExpectoPatronum(Wand w){
+	public ExpectoPatronum(Wand w){
 		this.w = w;
 	}
 	@Override

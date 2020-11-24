@@ -3,7 +3,7 @@ package commands;
 public class Expelliarmus implements Command{
 	
 	Wand w;
-	Expelliarmus(Wand w){
+	public Expelliarmus(Wand w){
 		this.w = w;
 	}
 	@Override
