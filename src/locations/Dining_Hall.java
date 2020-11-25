@@ -6,7 +6,7 @@ import runtime.*;
 public class Dining_Hall extends Location {
 	String next;
 	Reader reader;
-	Bellatrix bel = new Bellatrix();
+	Bellatrix bel = new Bellatrix(Harry.getInstance());
 	Dining_Hall(Reader reader) {
 		super("Dining Hall");
 		this.reader = reader;

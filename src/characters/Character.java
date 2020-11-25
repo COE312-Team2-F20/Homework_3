@@ -6,7 +6,7 @@ import locations.LocationUpdater;
 public abstract class Character {
 	String name;
 	// Every character needs a location updater if they move around
-	LocationUpdater lu;
+	static LocationUpdater lu;
 
 	Character() {
 		name = "";

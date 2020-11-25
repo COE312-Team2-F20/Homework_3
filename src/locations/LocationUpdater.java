@@ -33,8 +33,8 @@ public class LocationUpdater extends Location {
 				student.look();
 				if(getdefeat()) {
 				next = student.exit();
-				}
 				student.walk(next);
+				}
 				// next_loc();
 			} else if (getLocation().contains("east")) {
 				next = "";

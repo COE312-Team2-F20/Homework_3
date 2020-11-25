@@ -4,15 +4,17 @@ import commands.*;
 import locations.*;
 import runtime.Reader;
 import state.*;
-import subject.Watch;
+
+import java.util.ArrayList;
 import java.util.Random; 
+import subject.*;
 
 public class Harry extends Character implements Runnable {
 	String line = "";
+	private ArrayList observers;
 	Random rand = new Random(); 
 	boolean hasMap;
-	Reader reader;
-	LocationUpdater updater;
+	static Reader reader;
 	Watch w;
 	Wand wand = new Wand();
 	ExpectoPatronum exp = new ExpectoPatronum(wand);
@@ -21,9 +23,14 @@ public class Harry extends Character implements Runnable {
 	Stupefy s = new Stupefy(wand);
 	Command[] cmds = {exp, ex, p, s};
 	ControlPanel cp = new ControlPanel(cmds);
-	
+	private static 	Harry instance;
 	private State state = new HarryState();
-
+	public static synchronized Harry getInstance(){
+		if(instance == null){
+		instance = new Harry(lu, reader);
+		}
+		 return instance;
+		}
 	public Harry(LocationUpdater lu, Reader reader) {
 		super("Harry", lu);
 		this.reader = reader;
@@ -41,7 +48,6 @@ public class Harry extends Character implements Runnable {
 					fight(input);
 					try {
 						Thread.sleep(500);
-						System.out.println("You saved yourself...");
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -114,5 +120,4 @@ public class Harry extends Character implements Runnable {
 	public void setState(State state) {
 		this.state = state;
 	}
-	
-}
+	}
